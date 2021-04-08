@@ -25,7 +25,7 @@ using namespace std;
         }
     }
 
-    void Board::post(unsigned int row, unsigned int column, Direction Direct , string ad){
+    void Board::post(unsigned int row, unsigned int column, Direction Direct ,const string& ad){
         if(ad.length() > 0){  //check if the ad is not empty 
 
             if(Direct==Direction::Vertical) {
@@ -54,7 +54,7 @@ using namespace std;
         if(Direct == Direction::Horizontal){
             unsigned int start_c =column;
             while(start_c < ad_length+column){
-                if(board[row][start_c].empty()){
+                if(board[row][start_c] == 0){
                     ad += "_";
                 }
                 else {
@@ -68,7 +68,7 @@ using namespace std;
             unsigned int start_r =row;
             while(start_r < ad_length+row){
                 
-                if(board[start_r][column].empty()){
+                if(board[start_r][column] == 0){
                     ad += "_";
                 }
                 else {
@@ -84,11 +84,11 @@ using namespace std;
         unsigned int k = 0;
        for(unsigned int i=0; i <= this->end_row; i++){
            for(unsigned int j=0; j <= this->end_column; j++){
-               if(this->board[i][j].empty()){
+               if(this->board[i][j] == 0){
                     cout << '_';
                }
                else{
-                   cout << this->board[i][j].at(k);
+                   cout << this->board[i][j];
                }
            }
            cout << endl; //downline

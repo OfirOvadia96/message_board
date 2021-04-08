@@ -49,10 +49,20 @@ int main(){
     b.post(12,20,Direction::Horizontal,"---");
     b.post(11,19,Direction::Vertical,"|||");
     b.post(12,16,Direction::Horizontal,"---");
-    
+
     //can be expanded:
-    b.post(15,15,Direction::Vertical,"expansion");
-    b.post(6,45,Direction::Horizontal,"expansion");
-    b.show();
+    string text = "expansion";
+    b.post(15,15,Direction::Vertical,text);
+    b.post(6,45,Direction::Horizontal,text);
+
+    b.show(); //print the board
+    
+    //show how read function works:
+    string ans1 = b.read(15 ,15, Direction::Vertical , text.length()); //need to be "expansion"
+    string ans2 = b.read(6 ,45, Direction::Horizontal , text.length()); //need to be "expansion"
+    if(ans1 == text && ans2 == text){
+        cout << endl;
+        cout << "function read works well" <<endl;
+    }
     return 0;
 }
